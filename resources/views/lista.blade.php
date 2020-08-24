@@ -9,6 +9,7 @@
 </div>
 
     <div class="col-8 m-auto">
+    {{ csrf_field() }}
         <table class="table text-center">
             <thead class="thead-dark">
                 <tr>
@@ -30,10 +31,10 @@
                     <td>{{$cadastros->data_nascimento}}</td>
                     <td>{{$cadastros->created_at}}</td>
                     <td>
-                        <a href="{{url("pessoas/edit=$cadastros->id")}}">
+                        <a href="{{url("pessoas/edit/$cadastros->id")}}">
                             <button class="btn btn-info">Editar</button>
                         </a>
-                        <a href="">
+                        <a href="{{url("delete/$cadastros->id")}}" class="js-del">
                             <button class="btn btn-danger">Deletar</button>
                         </a>
                     </td>

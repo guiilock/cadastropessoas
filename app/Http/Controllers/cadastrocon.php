@@ -81,7 +81,7 @@ class cadastrocon extends Controller
     public function edit($id)
     {
         $pessoa=$this->objCad->find($id);
-        echo $pessoa->name;
+        return view('edit', compact('pessoa'));
     }
 
     /**
@@ -93,7 +93,12 @@ class cadastrocon extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->objCad->where(['id'=>$id])->update([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'data_nascimento'=>$request->nasc
+        ]);
+        return redirect('pessoas');
     }
 
     /**
@@ -104,6 +109,7 @@ class cadastrocon extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del=$this->objCad->destroy($id);
+        return($del)?"sim":"não";
     }
 }

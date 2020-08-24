@@ -19,3 +19,5 @@ Route::get('/create', 'cadastrocon@create');
 Route::get('/pessoas', 'cadastrocon@index');
 Route::post('/cadastrar', 'cadastrocon@store');
 Route::get('pessoas/edit/{id}', 'cadastrocon@edit');
+Route::put('atualizar/{id}', 'cadastrocon@update');
+Route::delete('delete/{id}', 'cadastrocon@destroy');
